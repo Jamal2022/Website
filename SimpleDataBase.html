@@ -115,20 +115,7 @@
         var refreshBtn = document.querySelector("#Refresh");
         var table = document.querySelector("#table");
 
-        function InsertData() {
-            set(ref(db, "People/"+ enterID.value),{
-                Name: enterName.value,
-                ID: enterID.value,
-                Age: enterAge.value
-            })
-            .then(()=>{
-                RefeshData();
-                alert("Data added successfully");
-            })
-            .catch((error)=>{
-                alert(error);
-            });
-        }
+
 
         function FindData() {
             const dbref = ref(db);
@@ -182,7 +169,20 @@
             })
         }
 
-
+        function InsertData() {
+            set(ref(db, "People/"+ enterID.value),{
+                Name: enterName.value,
+                ID: enterID.value,
+                Age: enterAge.value
+            })
+            .then(()=>{
+                RefeshData();
+                alert("Data added successfully");
+            })
+            .catch((error)=>{
+                alert(error);
+            });
+        }
 
         function UpdateData(){
             update(ref(db, "People/"+ enterID.value),{
